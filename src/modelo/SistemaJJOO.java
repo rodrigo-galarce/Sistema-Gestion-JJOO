@@ -18,11 +18,19 @@ public class SistemaJJOO {
         this.listaDeportes = new HashMap<>();
     }
 
-    public void registrarPais(Pais pais) {
+    public HashMap<String, Pais> getListaPaises() {
+        return listaPaises;
+    }
+
+    public HashMap<String, Deporte> getListaDeportes() {
+        return listaDeportes;
+    }
+
+    public void agregrarPais(Pais pais) {
         listaPaises.put(pais.getCodigoISO(), pais);
     }
 
-    public void registrarDeporte(Deporte deporte) {
+    public void agregarDeporte(Deporte deporte) {
         listaDeportes.put(deporte.getNombre(), deporte);
     }
 
