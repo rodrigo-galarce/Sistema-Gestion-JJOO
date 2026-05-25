@@ -3,7 +3,7 @@ package modelo.resultado;
 import modelo.marca.Marca;
 import modelo.persona.Atleta;
 
-public class Resultado {
+public class Resultado implements Comparable<Resultado>{
     private int posicion;
     private Atleta atleta;
     private Marca marca;
@@ -27,6 +27,11 @@ public class Resultado {
 
     public void setPosicion(int posicion) {
         this.posicion = posicion;
+    }
+
+    @Override
+    public int compareTo(Resultado otro) {
+        return this.marca.compareTo(otro.getMarca());
     }
 
 }

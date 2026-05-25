@@ -62,4 +62,8 @@ public class Competencia {
         return listaResultados;
     }
 
+    public ArrayList<Inscripcion> getListaInscripciones() {
+        return listaInscripciones;
+    }
+
 }

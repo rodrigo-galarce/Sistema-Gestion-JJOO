@@ -8,42 +8,35 @@ import java.util.Scanner;
 
 public class MenuPrincipal {
     private SistemaJJOO sistema;
-    private ServicioPais servicioPais;
-    private ServicioAtleta servicioAtleta;
-    private ServicioEntrenador servicioEntrenador;
-    private ServicioDisciplina servicioDisciplina;
-    private ServicioCompetencia servicioCompetencia;
-    private ServicioResultado servicioResultado;
-    private ServicioInscripcion servicioInscripcion;
+    private MenuOrganizativo menuOrganizativo;
+    private MenuDeportivo menuDeportivo;
+    private MenuInscripciones menuInscripciones;
+    private MenuResultados menuResultados;
+    private MenuConsulta menuConsulta;
     private Scanner scanner;
 
     public MenuPrincipal(SistemaJJOO sistema) {
         this.sistema = sistema;
         scanner = new Scanner(System.in);
-        servicioPais = new ServicioPais(sistema);
-        servicioAtleta = new ServicioAtleta(sistema);
-        servicioEntrenador = new ServicioEntrenador(sistema);
-        servicioDisciplina = new ServicioDisciplina(sistema);
-        servicioCompetencia = new ServicioCompetencia(sistema);
-        servicioResultado = new ServicioResultado(sistema);
-        servicioInscripcion = new ServicioInscripcion(sistema);
+        menuOrganizativo = new MenuOrganizativo(sistema);
+        menuDeportivo = new MenuDeportivo(sistema);
+        menuInscripciones = new MenuInscripciones(sistema);
+        menuResultados = new MenuResultados(sistema);
+        menuConsulta = new MenuConsulta(sistema);
+
     }
 
-    private void mostrarMenu() {
+    private void mostrarMenuPrincipal() {
         System.out.println("""         
                 ========================================
                             Sistema de Gestión
                              Juegos Olímpicos
                 ========================================
-                1. Registrar país
-                2. Registrar atleta
-                3. Registrar entrenador
-                4. Registrar disciplina
-                5. Crear competencia
-                6. Inscribir atleta
-                7. Registrar resultado
-                8. Consultar medallero
-                9. Consultar récords
+                1. Gestión organizativa
+                2. Gestión deportiva
+                3. Gestión de inscripciones
+                4. Gestión de resultados
+                5. Consultas
                 ----------------------------------------
                 0. Salir
                 ----------------------------------------
@@ -51,49 +44,31 @@ public class MenuPrincipal {
                 """);
     }
 
-    public void iniciarMenu() {
+    public void iniciarMenuPrincipal() {
         int opcionSeleccionada = -1;
         while (opcionSeleccionada != 0) {
-            mostrarMenu();
+            mostrarMenuPrincipal();
             try {
-                opcionSeleccionada = scanner.nextInt();
-                scanner.nextLine();
+                System.out.print("Ingrese una opción: "); opcionSeleccionada = scanner.nextInt(); scanner.nextLine();
                 if (opcionSeleccionada == 1) {
-                    System.out.print("Ingrese nombre del país: ");
-                    String nombre = scanner.nextLine();
-                    System.out.print("Ingrese código del país: ");
-                    String codigo = scanner.nextLine();
-                    servicioPais.registrarPais(nombre, codigo);
+                    menuOrganizativo.iniciarMenuOrganizativo();
                 } else if (opcionSeleccionada == 2) {
-                    registrarAtleta();
+                    menuDeportivo.iniciarMenuDeportivo();
                 } else if (opcionSeleccionada == 3) {
-                    registrarEntrenador();
+                    menuInscripciones.iniciarMenuInscripciones();
                 } else if (opcionSeleccionada == 4) {
-                    registrarDisciplina();
+                    menuResultados.iniciarMenuResultados();
                 } else if (opcionSeleccionada == 5) {
-                    crearCompetencia();
-                } else if (opcionSeleccionada == 6) {
-                    inscribirAtleta();
-                } else if (opcionSeleccionada == 7) {
-                    registrarResultado();
-                } else if (opcionSeleccionada == 8) {
-                    servicioConsulta.consultarMedallero();
-                } else if (opcionSeleccionada == 9) {
-                    servicioConsulta.consultarRecords();
+                    menuConsulta.iniciarMenuConsulta();
                 } else if (opcionSeleccionada == 0) {
-                    System.out.println("Saliendo del sistema...");
+                    System.out.println("Saliendo del sistema.");
                 } else {
                     System.out.println("Opción no válida.");
                 }
             } catch (InputMismatchException e) {
-                System.out.println(
-                        "Error: Solo se permiten números enteros"
-                );
-                scanner.nextLine();
+                System.out.println("Error: Solo se permiten números enteros."); scanner.nextLine();
             } catch (Exception e) {
-                System.out.println(
-                        "Error no contemplado: " + e.getClass().getSimpleName());
-                scanner.nextLine();
+                System.out.println("Error: " + e.getClass().getSimpleName()); scanner.nextLine();
             }
         }
     }

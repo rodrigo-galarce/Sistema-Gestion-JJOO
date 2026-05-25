@@ -15,11 +15,19 @@ public class Delegacion {
         listaEntrenadores = new HashMap<Long, Entrenador>();
     }
 
-    public void incorporarAtleta(Atleta atleta) {
+    public void agregrarEntrenador(Entrenador entrenador) {
+        listaEntrenadores.put(entrenador.getDni(), entrenador);
+    }
+
+    public void agregrarAtleta(Atleta atleta) {
         listaAtletas.put(atleta.getDni(), atleta);
     }
 
-    public void incorporarEntrenador(Entrenador entrenador) {
-        listaEntrenadores.put(entrenador.getDni(), entrenador);
+    public Map<Long, Atleta> getListaAtletas() {
+        return listaAtletas;
+    }
+
+    public Map<Long, Entrenador> getListaEntrenadores() {
+        return listaEntrenadores;
     }
 }
