@@ -47,6 +47,7 @@ public class MenuOrganizativo {
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
+                    MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 2) {
                     System.out.print("Ingrese el DNI del atleta: "); Long dni = scanner.nextLong(); scanner.nextLine();
                     System.out.print("Ingrese el nombre del atleta: "); String nombre = scanner.nextLine();
@@ -61,6 +62,7 @@ public class MenuOrganizativo {
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
+                    MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 3) {
                     System.out.print("Ingrese el DNI del entrenador: "); Long dni = scanner.nextLong(); scanner.nextLine();
                     System.out.print("Ingrese el nombre del entrenador: "); String nombre = scanner.nextLine();
@@ -75,6 +77,7 @@ public class MenuOrganizativo {
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
+                    MenuPrincipal.volverMenu(scanner);
                 } else {
                     System.out.println("Opción no válida.");
                 }

@@ -23,7 +23,6 @@ public class MenuPrincipal {
         menuInscripciones = new MenuInscripciones(sistema);
         menuResultados = new MenuResultados(sistema);
         menuConsulta = new MenuConsulta(sistema);
-
     }
 
     private void mostrarMenuPrincipal() {
@@ -71,5 +70,10 @@ public class MenuPrincipal {
                 System.out.println("Error: " + e.getClass().getSimpleName()); scanner.nextLine();
             }
         }
+    }
+
+    public static void volverMenu(Scanner scanner) {
+        System.out.println("Presione ENTER para continuar.");
+        scanner.nextLine();
     }
 }

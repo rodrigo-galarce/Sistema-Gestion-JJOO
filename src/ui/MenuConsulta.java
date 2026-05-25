@@ -41,20 +41,25 @@ public class MenuConsulta {
                 System.out.print("Ingrese una opción: "); opcionSeleccionada = scanner.nextInt(); scanner.nextLine();
                 if (opcionSeleccionada == 1) {
                     servicioConsulta.consultarMedalleroPorPais();
-                /*} else if (opcionSeleccionada == 2) {
+                    MenuPrincipal.volverMenu(scanner);
+                } else if (opcionSeleccionada == 2) {
                     servicioConsulta.consultarAtletas();
+                    MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 3) {
                     servicioConsulta.consultarEntrenadores();
+                    MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 4) {
                     servicioConsulta.consultarDisciplinas();
+                    MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 5) {
                     servicioConsulta.consultarCompetencias();
+                    MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 6) {
                     servicioConsulta.consultarDelegaciones();
+                    MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 7) {
-                    servicioConsulta.consultarRecords();*/
-                } else if (opcionSeleccionada == 0) {
-                    System.out.println("Saliendo del sistema.");
+                    servicioConsulta.consultarRecords();
+                    MenuPrincipal.volverMenu(scanner);
                 } else {
                     System.out.println("Opción no válida.");
                 }

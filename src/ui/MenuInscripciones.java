@@ -53,6 +53,7 @@ public class MenuInscripciones {
                     else {
                         System.out.println("Competencia o atleta no encontrado.");
                         }
+                    MenuPrincipal.volverMenu(scanner);
                 }
                 else if (opcionSeleccionada != 0) {
                     System.out.println("Opción inválida.");

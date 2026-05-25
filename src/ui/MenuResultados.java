@@ -74,6 +74,7 @@ public class MenuResultados {
                     else {
                         System.out.println("Competencia o atleta no encontrado.");
                     }
+                    MenuPrincipal.volverMenu(scanner);
                 } else {
                     System.out.println("Opción no válida.");
                 }

@@ -17,4 +17,8 @@ public class Persona {
     public Long getDni() {
         return dni;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
 }

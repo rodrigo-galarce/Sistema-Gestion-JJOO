@@ -40,11 +40,13 @@ public class MenuDeportivo {
                     System.out.print("Ingrese nombre del deporte: "); String nombreDeporte = scanner.nextLine();
                     servicioDeporte.registrarDeporte(nombreDeporte);
                     System.out.println("El deporte ha sido registrado correctamente.");
+                    MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 2) {
                     System.out.print("Ingrese nombre del deporte: "); String nombreDeporte = scanner.nextLine();
                     System.out.print("Ingrese nombre de la disciplina: "); String nombreDisciplina = scanner.nextLine();
                     servicioDeporte.registrarDisciplina(nombreDeporte, nombreDisciplina);
                     System.out.println("La disciplina ha sido registrada correctamente.");
+                    MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 3) {
                     System.out.print("Ingrese nombre del deporte: "); String nombreDeporte = scanner.nextLine();
                     System.out.print("Ingrese nombre de la disciplina: "); String nombreDisciplina = scanner.nextLine();
@@ -59,6 +61,7 @@ public class MenuDeportivo {
                     scanner.nextLine();
                     servicioDeporte.crearCompetencia(nombreDeporte, nombreDisciplina, nombreCompetencia, fecha, nombreInstalacion, ubicacion, capacidad);
                     System.out.println("La competencia ha sido creada correctamente.");
+                    MenuPrincipal.volverMenu(scanner);
                 } else {
                     System.out.println("Opción no válida.");
                 }
