@@ -28,6 +28,7 @@ public class MenuInscripciones {
                         Gestion de Inscripciones
                 ========================================
                 1. Inscribir atleta
+                2. Inscribir personal para ceremonia
                 ----------------------------------------
                 0. Volver
                 ----------------------------------------

@@ -1,10 +1,8 @@
 package modelo.pais;
 
-import modelo.persona.Atleta;
+import java.io.Serializable;
 
-import java.util.Map;
-
-public class Pais {
+public class Pais implements Serializable {
     private String nombre;
     private String codigoISO;
     private Delegacion delegacion;
@@ -21,10 +19,6 @@ public class Pais {
 
     public String getCodigoISO() {
         return codigoISO;
-    }
-
-    public void obtenerCantMedallas(){
-        return;
     }
 
     public Delegacion getDelegacion() {

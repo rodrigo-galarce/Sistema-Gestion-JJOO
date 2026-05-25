@@ -3,9 +3,10 @@ package modelo.deporte;
 import modelo.resultado.Resultado;
 import modelo.resultado.Record;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Disciplina {
+public class Disciplina implements Serializable {
     private String nombre;
     private Record recordActual;
     private ArrayList<Competencia> listaCompetencias;

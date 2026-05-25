@@ -1,6 +1,8 @@
 package modelo.ceremonia;
 
-public class ParticipacionCeremonia {
+import java.io.Serializable;
+
+public class ParticipacionCeremonia implements Serializable {
     private RolCeremonia rol;
 
     public  ParticipacionCeremonia(RolCeremonia rol) {

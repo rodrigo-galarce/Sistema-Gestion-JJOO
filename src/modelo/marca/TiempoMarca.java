@@ -1,6 +1,8 @@
 package modelo.marca;
 
-public class TiempoMarca extends Marca {
+import java.io.Serializable;
+
+public class TiempoMarca extends Marca implements Serializable {
     public TiempoMarca(double valor) {
         super(valor);
     }

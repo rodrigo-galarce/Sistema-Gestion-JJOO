@@ -1,8 +1,9 @@
 package modelo.ceremonia;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Ceremonia {
+public class Ceremonia implements Serializable {
     private String nombre;
     private LocalDate fecha;
     private TipoCeremonia tipo;

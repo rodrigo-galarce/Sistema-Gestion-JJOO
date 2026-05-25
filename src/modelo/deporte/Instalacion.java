@@ -1,6 +1,8 @@
 package modelo.deporte;
 
-public class Instalacion {
+import java.io.Serializable;
+
+public class Instalacion implements Serializable {
     private String nombre;
     private String ubicacion;
     private int capacidad;

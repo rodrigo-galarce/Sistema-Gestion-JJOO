@@ -3,10 +3,11 @@ package modelo.pais;
 import modelo.persona.Atleta;
 import modelo.persona.Entrenador;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Delegacion {
+public class Delegacion implements Serializable {
     private Map<Long, Atleta> listaAtletas;
     private Map<Long, Entrenador> listaEntrenadores;
 

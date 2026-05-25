@@ -1,6 +1,8 @@
 package modelo.marca;
 
-public class DistanciaMarca extends Marca {
+import java.io.Serializable;
+
+public class DistanciaMarca extends Marca implements Serializable {
     public DistanciaMarca(double valor) {
         super(valor);
     }

@@ -1,6 +1,8 @@
 package modelo.persona;
 
-public class Persona {
+import java.io.Serializable;
+
+public class Persona implements Serializable {
     protected long dni;
     protected String nombre;
     protected String apellido;

@@ -1,20 +1,25 @@
 package ui;
 
 import modelo.SistemaJJOO;
+import modelo.ceremonia.TipoCeremonia;
 import servicio.ServicioDelegacion;
 import servicio.ServicioPais;
+import servicio.ServicioCeremonia;
 
+import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuOrganizativo {
     private ServicioPais servicioPais;
     private ServicioDelegacion servicioAtletaYEntrenador;
+    private ServicioCeremonia servicioCeremonia;
     private Scanner scanner;
 
     public MenuOrganizativo(SistemaJJOO sistema) {
         servicioPais = new ServicioPais(sistema);
         servicioAtletaYEntrenador = new ServicioDelegacion(sistema);
+        servicioCeremonia = new ServicioCeremonia(sistema);
         scanner = new Scanner(System.in);
     }
 
@@ -26,6 +31,7 @@ public class MenuOrganizativo {
                 1. Registrar país
                 2. Registrar atleta
                 3. Registrar entrenador
+                4. Registrar ceremonia
                 ----------------------------------------
                 0. Volver
                 ----------------------------------------
@@ -77,6 +83,39 @@ public class MenuOrganizativo {
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
+                    MenuPrincipal.volverMenu(scanner);
+                }
+                else if (opcionSeleccionada == 4) {
+                    System.out.print("Ingrese nombre de la ceremonia: "); String nombre = scanner.nextLine();
+                    System.out.print("Ingrese fecha (AAAA-MM-DD): "); LocalDate fecha = LocalDate.parse(scanner.nextLine());
+                    TipoCeremonia tipo = null;
+                    while (tipo == null) {
+                        System.out.println("""
+                                Tipo de ceremonia:
+                                1. APERTURA
+                                2. CLAUSURA
+                                3. PREMIACION
+                                4. SORTEO
+                                5. ENTRETIEMPO
+                                """);
+                        int opcionTipo = scanner.nextInt();
+                        scanner.nextLine();
+                        if (opcionTipo == 1) {
+                            tipo = TipoCeremonia.APERTURA;
+                        } else if (opcionTipo == 2) {
+                            tipo = TipoCeremonia.CLAUSURA;
+                        } else if (opcionTipo == 3) {
+                            tipo = TipoCeremonia.PREMIACION;
+                        } else if (opcionTipo == 4) {
+                            tipo = TipoCeremonia.SORTEO;
+                        } else if (opcionTipo == 5) {
+                            tipo = TipoCeremonia.ENTRETIEMPO;
+                        } else {
+                            System.out.println("Opción inválida.");
+                        }
+                    }
+                    System.out.print("Ingrese ubicación: "); String ubicacion = scanner.nextLine();
+                    servicioCeremonia.registrarCeremonia(nombre, fecha, tipo, ubicacion);
                     MenuPrincipal.volverMenu(scanner);
                 } else {
                     System.out.println("Opción no válida.");

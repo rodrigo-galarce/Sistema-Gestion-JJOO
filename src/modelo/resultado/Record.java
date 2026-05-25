@@ -3,9 +3,10 @@ package modelo.resultado;
 import modelo.marca.Marca;
 import modelo.persona.Atleta;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Record {
+public class Record implements Serializable {
     private Marca mejorMarca;
     private LocalDate fecha;
     private Atleta atleta;

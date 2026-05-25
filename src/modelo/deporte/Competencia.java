@@ -4,10 +4,11 @@ import modelo.inscripcion.Inscripcion;
 import modelo.persona.Atleta;
 import modelo.resultado.Resultado;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Competencia {
+public class Competencia implements Serializable {
     private String nombre;
     private LocalDate fecha;
     private EstadoCompetencia estado;
