@@ -53,8 +53,8 @@ public class MenuResultados {
                     2. Distancia
                     3. Puntaje
                     """);
-                    int opcionMarca = scanner.nextInt(); scanner.nextLine();
-                    System.out.print("Elija una opción: "); double valor = scanner.nextDouble(); scanner.nextLine();
+                    System.out.print("Elija una opción: "); int opcionMarca = scanner.nextInt(); scanner.nextLine();
+                    System.out.print("Ingrese el resultado: "); double valor = scanner.nextDouble(); scanner.nextLine();
                     Competencia competencia = servicioDeporte.buscarCompetencia(nombreDeporte, nombreDisciplina, nombreCompetencia);
                     Atleta atleta = servicioDelegacion.buscarAtleta(dni);
                     if (competencia != null && atleta != null) {
