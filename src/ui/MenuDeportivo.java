@@ -1,5 +1,6 @@
 package ui;
 
+import excepciones.CompetenciaFueraDeFechaException;
 import modelo.SistemaJJOO;
 import servicio.ServicioDeporte;
 
@@ -51,16 +52,16 @@ public class MenuDeportivo {
                     System.out.print("Ingrese nombre del deporte: "); String nombreDeporte = scanner.nextLine();
                     System.out.print("Ingrese nombre de la disciplina: "); String nombreDisciplina = scanner.nextLine();
                     System.out.print("Ingrese nombre de la competencia: "); String nombreCompetencia = scanner.nextLine();
-                    System.out.print("Ingrese año: "); int anio = scanner.nextInt();
-                    System.out.print("Ingrese mes: "); int mes = scanner.nextInt();
-                    System.out.print("Ingrese día: "); int dia = scanner.nextInt();
-                    scanner.nextLine(); LocalDate fecha = LocalDate.of(anio, mes, dia);
+                    System.out.print("Ingrese fecha (AAAA-MM-DD): "); LocalDate fecha = LocalDate.parse(scanner.nextLine());
                     System.out.print("Ingrese nombre de la instalación: "); String nombreInstalacion = scanner.nextLine();
                     System.out.print("Ingrese ubicación: "); String ubicacion = scanner.nextLine();
-                    System.out.print("Ingrese capacidad: "); int capacidad = scanner.nextInt();
-                    scanner.nextLine();
-                    servicioDeporte.crearCompetencia(nombreDeporte, nombreDisciplina, nombreCompetencia, fecha, nombreInstalacion, ubicacion, capacidad);
-                    System.out.println("La competencia ha sido creada correctamente.");
+                    System.out.print("Ingrese capacidad: "); int capacidad = scanner.nextInt(); scanner.nextLine();
+                    try {
+                        servicioDeporte.crearCompetencia(nombreDeporte, nombreDisciplina, nombreCompetencia, fecha, nombreInstalacion, ubicacion, capacidad);
+                        System.out.println("La competencia ha sido creada correctamente.");
+                    } catch (CompetenciaFueraDeFechaException e) {
+                        System.out.println(e.getMessage());
+                    }
                     MenuPrincipal.volverMenu(scanner);
                 } else {
                     System.out.println("Opción no válida.");

@@ -19,4 +19,12 @@ public class Ceremonia implements Serializable {
     public String getNombre() {
         return nombre;
     }
+
+    public TipoCeremonia getTipo() {
+        return tipo;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
 }

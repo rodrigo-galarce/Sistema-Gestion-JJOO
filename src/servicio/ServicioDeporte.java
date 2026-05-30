@@ -1,6 +1,9 @@
 package servicio;
 
+import excepciones.CompetenciaFueraDeFechaException;
 import modelo.SistemaJJOO;
+import modelo.ceremonia.Ceremonia;
+import modelo.ceremonia.TipoCeremonia;
 import modelo.deporte.Competencia;
 import modelo.deporte.Deporte;
 import modelo.deporte.Disciplina;
@@ -33,7 +36,14 @@ public class ServicioDeporte {
         }
     }
 
-    public void crearCompetencia(String nombreDeporte, String nombreDisciplina, String nombreCompetencia, LocalDate fecha, String nombreInstalacion, String ubicacion, int capacidad) {
+    public void crearCompetencia(String nombreDeporte, String nombreDisciplina, String nombreCompetencia, LocalDate fecha, String nombreInstalacion, String ubicacion, int capacidad) throws CompetenciaFueraDeFechaException {
+        // Validación contra ceremonia de clausura
+        for (Ceremonia ceremonia : sistema.getListaCeremonias()) {
+            if (ceremonia.getTipo() == TipoCeremonia.CLAUSURA
+                    && fecha.isAfter(ceremonia.getFecha())) {
+                throw new CompetenciaFueraDeFechaException("No se puede registrar una competencia posterior a la ceremonia de clausura.");
+            }
+        }
         Deporte deporte = sistema.getListaDeportes().get(nombreDeporte);
         if (deporte != null) {
             Disciplina disciplina = null;
@@ -43,7 +53,6 @@ public class ServicioDeporte {
                     break;
                 }
             }
-
             if (disciplina != null) {
                 Instalacion instalacion = new Instalacion(nombreInstalacion, ubicacion, capacidad);
                 Competencia competencia = new Competencia(nombreCompetencia, fecha, instalacion, disciplina);
