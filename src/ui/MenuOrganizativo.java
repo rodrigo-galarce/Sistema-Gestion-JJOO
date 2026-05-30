@@ -62,6 +62,9 @@ public class MenuOrganizativo {
                     System.out.print("Ingrese la especialidad del atleta: "); String especialidad = scanner.nextLine();
                     System.out.print("Ingrese el código del país: "); String codigoPais = scanner.nextLine();
                     try {
+                        if (edad <= 0) {
+                            throw new IllegalArgumentException("La edad debe ser mayor a cero.");
+                        }
                         servicioAtletaYEntrenador.registrarAtleta(codigoPais, dni, nombre, apellido, edad, especialidad);
                         System.out.println("El atleta ha sido registrado correctamente.");
                     } catch (Exception e) {
@@ -76,6 +79,9 @@ public class MenuOrganizativo {
                     System.out.print("Ingrese la especialidad del entrenador: "); String especialidad = scanner.nextLine();
                     System.out.print("Ingrese el código del país: "); String codigoPais = scanner.nextLine();
                     try {
+                        if (edad <= 0) {
+                            throw new IllegalArgumentException("La edad debe ser mayor a cero.");
+                        }
                         servicioAtletaYEntrenador.registrarEntrenador(codigoPais, dni, nombre, apellido, edad, especialidad);
                         System.out.println("El entrenador ha sido registrado correctamente.");
                     } catch (Exception e) {
