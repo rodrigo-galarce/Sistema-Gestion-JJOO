@@ -85,6 +85,8 @@ public class ServicioConsulta {
         }
         for (Ceremonia ceremonia : sistema.getListaCeremonias()) {
             System.out.println("Nombre: " + ceremonia.getNombre());
+            System.out.println("Fecha: " + ceremonia.getFecha());
+            System.out.println();
         }
     }
 }
