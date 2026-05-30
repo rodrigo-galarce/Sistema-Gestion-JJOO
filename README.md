@@ -30,6 +30,7 @@ Trabajo final para la materia “Programación Orientada a Objetos”
 * Se implementaron excepciones personalizadas para controlar situaciones específicas del dominio, como inscripciones duplicadas y errores de persistencia.
 * Se incorporaron validaciones de entrada y manejo de excepciones para evitar interrupciones durante la ejecución del programa.
 * Durante la implementación se agregaron clases y métodos auxiliares necesarios para completar la funcionalidad del sistema y mejorar la organización del código respecto del modelo inicial del Diagrama de Clases.
+* Se implementó una validación que impide registrar competencias con fecha posterior a una ceremonia de clausura. Esta restricción busca mantener la coherencia temporal del evento y se controla mediante una excepción personalizada.
 
 ## Aspectos de diseño destacados
 * Se utilizó herencia para modelar las personas participantes del sistema, tomando a `Persona` como clase base y especializando su comportamiento mediante las clases `Atleta` y `Entrenador`.
