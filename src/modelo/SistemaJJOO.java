@@ -1,6 +1,7 @@
 package modelo;
 
 import modelo.ceremonia.Ceremonia;
+import modelo.ceremonia.ParticipacionCeremonia;
 import modelo.deporte.Deporte;
 import modelo.pais.Pais;
 
@@ -14,6 +15,7 @@ public class SistemaJJOO implements Serializable {
     private HashMap<String, Pais> listaPaises;
     private HashMap<String, Deporte> listaDeportes;
     private ArrayList<Ceremonia> listaCeremonias;
+    private ArrayList<ParticipacionCeremonia> listaParticipacionesCeremonia;
 
     public SistemaJJOO(int anio, String sedeCiudad) {
         this.anio = anio;
@@ -21,6 +23,7 @@ public class SistemaJJOO implements Serializable {
         listaPaises = new HashMap<>();
         listaDeportes = new HashMap<>();
         listaCeremonias = new ArrayList<>();
+        listaParticipacionesCeremonia = new ArrayList<>();
     }
 
     public HashMap<String, Pais> getListaPaises() {
@@ -35,6 +38,10 @@ public class SistemaJJOO implements Serializable {
         return listaCeremonias;
     }
 
+    public ArrayList<ParticipacionCeremonia> getListaParticipacionesCeremonia() {
+        return listaParticipacionesCeremonia;
+    }
+
     public void agregrarPais(Pais pais) {
         listaPaises.put(pais.getCodigoISO(), pais);
     }
@@ -45,5 +52,9 @@ public class SistemaJJOO implements Serializable {
 
     public void agregarCeremonia(Ceremonia ceremonia) {
         listaCeremonias.add(ceremonia);
+    }
+
+    public void agregarParticipacionCeremonia(ParticipacionCeremonia participacion) {
+        listaParticipacionesCeremonia.add(participacion);
     }
 }

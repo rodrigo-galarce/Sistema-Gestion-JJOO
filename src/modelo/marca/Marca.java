@@ -18,5 +18,10 @@ public abstract class Marca implements Comparable<Marca>, Serializable {
     }
 
     @Override
+    public String toString() {
+        return String.valueOf(valor);
+    }
+
+    @Override
     public abstract int compareTo(Marca otraMarca);
 }

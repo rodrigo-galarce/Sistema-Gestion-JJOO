@@ -59,11 +59,10 @@ public class MenuOrganizativo {
                     System.out.print("Ingrese el nombre del atleta: "); String nombre = scanner.nextLine();
                     System.out.print("Ingrese el apellido del atleta: "); String apellido = scanner.nextLine();
                     System.out.print("Ingrese la edad del atleta: "); int edad = scanner.nextInt(); scanner.nextLine();
-                    System.out.print("Ingrese la nacionalidad del atleta: "); String nacionalidad = scanner.nextLine();
                     System.out.print("Ingrese la especialidad del atleta: "); String especialidad = scanner.nextLine();
                     System.out.print("Ingrese el código del país: "); String codigoPais = scanner.nextLine();
                     try {
-                        servicioAtletaYEntrenador.registrarAtleta(codigoPais, dni, nombre, apellido, edad, nacionalidad, especialidad);
+                        servicioAtletaYEntrenador.registrarAtleta(codigoPais, dni, nombre, apellido, edad, especialidad);
                         System.out.println("El atleta ha sido registrado correctamente.");
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -74,11 +73,10 @@ public class MenuOrganizativo {
                     System.out.print("Ingrese el nombre del entrenador: "); String nombre = scanner.nextLine();
                     System.out.print("Ingrese el apellido del entrenador: "); String apellido = scanner.nextLine();
                     System.out.print("Ingrese la edad del entrenador: "); int edad = scanner.nextInt(); scanner.nextLine();
-                    System.out.print("Ingrese la nacionalidad del entrenador: "); String nacionalidad = scanner.nextLine();
                     System.out.print("Ingrese la especialidad del entrenador: "); String especialidad = scanner.nextLine();
                     System.out.print("Ingrese el código del país: "); String codigoPais = scanner.nextLine();
                     try {
-                        servicioAtletaYEntrenador.registrarEntrenador(codigoPais, dni, nombre, apellido, edad, nacionalidad, especialidad);
+                        servicioAtletaYEntrenador.registrarEntrenador(codigoPais, dni, nombre, apellido, edad, especialidad);
                         System.out.println("El entrenador ha sido registrado correctamente.");
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -98,8 +96,7 @@ public class MenuOrganizativo {
                                 4. SORTEO
                                 5. ENTRETIEMPO
                                 """);
-                        int opcionTipo = scanner.nextInt();
-                        scanner.nextLine();
+                        System.out.println("Ingrese el tipo de ceremonia: "); int opcionTipo =  scanner.nextInt(); scanner.nextLine();
                         if (opcionTipo == 1) {
                             tipo = TipoCeremonia.APERTURA;
                         } else if (opcionTipo == 2) {

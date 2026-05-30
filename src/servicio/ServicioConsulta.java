@@ -1,6 +1,7 @@
 package servicio;
 
 import modelo.SistemaJJOO;
+import modelo.ceremonia.Ceremonia;
 import modelo.pais.Pais;
 import modelo.persona.Atleta;
 import modelo.resultado.Record;
@@ -26,7 +27,7 @@ public class ServicioConsulta {
         for (Pais pais : sistema.getListaPaises().values()) {
             System.out.println("\nPaís: " + pais.getNombre());
             for (Atleta atleta : pais.getDelegacion().getListaAtletas().values()) {
-                System.out.println(atleta.getNombre() + " - DNI: " + atleta.getDni());
+                System.out.println(atleta.getNombre() + atleta.getApellido() + " - DNI: " + atleta.getDni());
                 }
             }
     }
@@ -35,7 +36,7 @@ public class ServicioConsulta {
         for (Pais pais : sistema.getListaPaises().values()) {
             System.out.println("\nPaís: " + pais.getNombre());
             pais.getDelegacion().getListaEntrenadores().values().forEach(entrenador -> {
-                System.out.println(entrenador.getNombre() + " - DNI: " + entrenador.getDni());
+                System.out.println(entrenador.getNombre() + entrenador.getApellido() + " - DNI: " + entrenador.getDni());
                 });
         }
     }
@@ -75,5 +76,15 @@ public class ServicioConsulta {
                     }
                 });
             });
+    }
+
+    public void consultarCeremonias() {
+        if (sistema.getListaCeremonias().isEmpty()) {
+            System.out.println("No hay ceremonias registradas.");
+            return;
         }
+        for (Ceremonia ceremonia : sistema.getListaCeremonias()) {
+            System.out.println("Nombre: " + ceremonia.getNombre());
+        }
+    }
 }

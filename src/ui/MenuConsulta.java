@@ -27,6 +27,7 @@ public class MenuConsulta {
                 5. Consultar competencias
                 6. Consultar delegaciones
                 7. Consultar récords
+                8. Consultar ceremonias
                 ----------------------------------------
                 0. Volver
                 ----------------------------------------
@@ -59,6 +60,9 @@ public class MenuConsulta {
                     MenuPrincipal.volverMenu(scanner);
                 } else if (opcionSeleccionada == 7) {
                     servicioConsulta.consultarRecords();
+                    MenuPrincipal.volverMenu(scanner);
+                } else if (opcionSeleccionada == 8) {
+                    servicioConsulta.consultarCeremonias();
                     MenuPrincipal.volverMenu(scanner);
                 } else {
                     System.out.println("Opción no válida.");

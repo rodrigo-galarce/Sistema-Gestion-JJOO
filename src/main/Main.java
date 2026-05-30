@@ -3,6 +3,7 @@ package main;
 import excepciones.PersistenciaException;
 import modelo.SistemaJJOO;
 import persistencia.PersistenciaSistema;
+import servicio.ServicioDeporte;
 import ui.MenuPrincipal;
 
 public class Main {

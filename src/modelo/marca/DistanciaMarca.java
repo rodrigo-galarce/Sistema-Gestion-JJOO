@@ -15,4 +15,9 @@ public class DistanciaMarca extends Marca implements Serializable {
                 otraMarca.getValor()
         );
     }
+
+    @Override
+    public String toString() {
+        return valor + " metros";
+    }
 }

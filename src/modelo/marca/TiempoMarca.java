@@ -15,4 +15,9 @@ public class TiempoMarca extends Marca implements Serializable {
                 this.valor
         );
     }
+
+    @Override
+    public String toString() {
+        return valor + " segundos";
+    }
 }
