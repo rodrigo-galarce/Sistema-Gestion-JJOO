@@ -27,7 +27,7 @@ public class ServicioConsulta {
         for (Pais pais : sistema.getListaPaises().values()) {
             System.out.println("\nPaís: " + pais.getNombre());
             for (Atleta atleta : pais.getDelegacion().getListaAtletas().values()) {
-                System.out.println(atleta.getNombre() + " " + atleta.getApellido() + " - DNI: " + atleta.getDni());
+                System.out.println(atleta.getNombre() + " " + atleta.getApellido() + " - DNI: " + atleta.getDni() + " - " + atleta.getEspecialidad());
                 }
             }
     }
@@ -36,7 +36,7 @@ public class ServicioConsulta {
         for (Pais pais : sistema.getListaPaises().values()) {
             System.out.println("\nPaís: " + pais.getNombre());
             pais.getDelegacion().getListaEntrenadores().values().forEach(entrenador -> {
-                System.out.println(entrenador.getNombre() + " " + entrenador.getApellido() + " - DNI: " + entrenador.getDni());
+                System.out.println(entrenador.getNombre() + " " + entrenador.getApellido() + " - DNI: " + entrenador.getDni() + " - " + entrenador.getEspecialidad());
                 });
         }
     }
