@@ -1,6 +1,7 @@
 # Sistema-Gestion-JJOO
 Trabajo final para la materia “Programación Orientada a Objetos”
 
+
 ## Supuestos realizados
 * Se asumió que cada país posee una única delegación deportiva.
 * Se asumió que los DNI de los atletas y los entrenadores son únicos dentro del sistema.
