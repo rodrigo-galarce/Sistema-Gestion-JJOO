@@ -1,0 +1,3 @@
+10001;Neymar;JR;35;Brasil;Futbol;BRA
+10000;Lionel;Messi;38;Argentina;Futbol;ARG
+10002;Cole;Palmer;23;Inglaterra;Futbol;ENG
