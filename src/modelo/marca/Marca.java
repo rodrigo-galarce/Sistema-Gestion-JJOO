@@ -13,10 +13,6 @@ public abstract class Marca implements Comparable<Marca>, Serializable {
         return valor;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
     @Override
     public String toString() {
         return String.valueOf(valor);

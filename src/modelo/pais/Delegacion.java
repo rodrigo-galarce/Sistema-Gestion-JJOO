@@ -12,8 +12,8 @@ public class Delegacion implements Serializable {
     private Map<Long, Entrenador> listaEntrenadores;
 
     public Delegacion() {
-        listaAtletas = new HashMap<Long, Atleta>();
-        listaEntrenadores = new HashMap<Long, Entrenador>();
+        listaAtletas = new HashMap<>();
+        listaEntrenadores = new HashMap<>();
     }
 
     public void agregrarEntrenador(Entrenador entrenador) {

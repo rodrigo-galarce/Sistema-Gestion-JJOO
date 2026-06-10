@@ -7,6 +7,7 @@ import servicio.ServicioPais;
 import servicio.ServicioCeremonia;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -102,7 +103,7 @@ public class MenuOrganizativo {
                                 4. SORTEO
                                 5. ENTRETIEMPO
                                 """);
-                        System.out.println("Ingrese el tipo de ceremonia: "); int opcionTipo =  scanner.nextInt(); scanner.nextLine();
+                        System.out.print("Ingrese el tipo de ceremonia: "); int opcionTipo =  scanner.nextInt(); scanner.nextLine();
                         if (opcionTipo == 1) {
                             tipo = TipoCeremonia.APERTURA;
                         } else if (opcionTipo == 2) {
@@ -125,8 +126,11 @@ public class MenuOrganizativo {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Error: Solo se permiten números enteros."); scanner.nextLine();
+            } catch (DateTimeParseException e) {
+                System.out.println("Formato de fecha inválido. Debe ingresar la fecha como AAAA-MM-DD (ejemplo: 2028-07-15).");
             } catch (Exception e) {
-                System.out.println("Error: " + e.getClass().getSimpleName()); scanner.nextLine();
+                System.out.println("Error: " + e.getMessage());
+                scanner.nextLine();
             }
         }
     }

@@ -27,4 +27,8 @@ public class Ceremonia implements Serializable {
     public LocalDate getFecha() {
         return fecha;
     }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
 }

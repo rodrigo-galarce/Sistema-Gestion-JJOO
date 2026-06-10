@@ -84,7 +84,7 @@ public class MenuInscripciones {
                                     4. CANTANTE
                                     5. PERFORMER
                                     """);
-                                System.out.println("Elija una opción: "); int opcionRol = scanner.nextInt(); scanner.nextLine();
+                                System.out.print("Elija una opción: "); int opcionRol = scanner.nextInt(); scanner.nextLine();
                                 if (opcionRol == 1) {
                                     rol = RolCeremonia.ABANDERADO;
                                 } else if (opcionRol == 2) {

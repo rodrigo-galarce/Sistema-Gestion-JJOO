@@ -19,7 +19,7 @@ public class ServicioInscripcion {
 
     public void inscribirAtleta(Competencia competencia, Atleta atleta) throws InscripcionDuplicadaException {
         for (Inscripcion inscripcion : competencia.getListaInscripciones()) {
-            if (inscripcion.getAtleta().getDni() == atleta.getDni()) {
+            if (inscripcion.getAtleta().getDni().equals(atleta.getDni())) {
                 throw new InscripcionDuplicadaException("El atleta ya está inscripto.");
             }
         }

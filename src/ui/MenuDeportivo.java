@@ -5,6 +5,7 @@ import modelo.SistemaJJOO;
 import servicio.ServicioDeporte;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -68,8 +69,11 @@ public class MenuDeportivo {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Error: Solo se permiten números enteros."); scanner.nextLine();
+            } catch (DateTimeParseException e) {
+                System.out.println("Formato de fecha inválido. Debe ingresar la fecha como AAAA-MM-DD (ejemplo: 2028-07-15).");
             } catch (Exception e) {
-                System.out.println("Error: " + e.getClass().getSimpleName()); scanner.nextLine();
+                System.out.println("Error: " + e.getMessage());
+                scanner.nextLine();
             }
         }
     }

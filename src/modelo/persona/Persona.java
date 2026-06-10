@@ -27,4 +27,12 @@ public class Persona implements Serializable {
     public String getApellido() {
         return apellido;
     }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
 }

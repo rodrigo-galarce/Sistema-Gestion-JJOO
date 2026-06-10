@@ -5,5 +5,5 @@ public enum RolCeremonia {
     PREMIADO,
     PRESENTADOR,
     CANTANTE,
-    PERFORMER;
+    PERFORMER
 }

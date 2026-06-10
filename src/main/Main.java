@@ -3,19 +3,21 @@ package main;
 import excepciones.PersistenciaException;
 import modelo.SistemaJJOO;
 import persistencia.PersistenciaSistema;
-import servicio.ServicioDeporte;
 import ui.MenuPrincipal;
 
 public class Main {
-
-    public static void main(String[] args) throws PersistenciaException {
+    public static void main(String[] args) {
+        SistemaJJOO sistema1 = new SistemaJJOO(2028,"Buenos Aires");
         PersistenciaSistema persistencia = new PersistenciaSistema();
-        SistemaJJOO sistema1 = persistencia.cargarSistema();
-        if (sistema1 == null) {
-            sistema1 = new SistemaJJOO(2028, "Buenos Aires");
-        }
+        try {persistencia.cargarSistema(sistema1);
+            } catch (PersistenciaException e) {
+            System.out.println(e.getMessage());
+                }
         MenuPrincipal menu = new MenuPrincipal(sistema1);
         menu.iniciarMenuPrincipal();
-        persistencia.guardarSistema(sistema1);
+        try {persistencia.guardarSistema(sistema1);
+            } catch (PersistenciaException e) {
+            System.out.println(e.getMessage());
+            }
     }
 }

@@ -5,5 +5,5 @@ public enum TipoCeremonia {
     CLAUSURA,
     PREMIACION,
     SORTEO,
-    ENTRETIEMPO;
+    ENTRETIEMPO
 }

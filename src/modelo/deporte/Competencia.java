@@ -42,6 +42,18 @@ public class Competencia implements Serializable {
         return estado;
     }
 
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public String getInstalacion() {
+        return instalacion.getNombre();
+    }
+
+    public Instalacion getInstalacionCompleta() {
+        return instalacion;
+    }
+
     public void setEstado(EstadoCompetencia estado) {
         this.estado = estado;
     }

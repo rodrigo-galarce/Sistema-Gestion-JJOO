@@ -55,7 +55,7 @@ public class ServicioConsulta {
             deporte.getListaDisciplinas().forEach(disciplina -> {
                 System.out.println("\nDisciplina: " + disciplina.getNombre());
                 disciplina.getListaCompetencias().forEach(competencia -> {
-                    System.out.println(competencia.getNombre());
+                    System.out.println(competencia.getNombre() + " - Fecha: " + competencia.getFecha());
                     });
                 });
             });

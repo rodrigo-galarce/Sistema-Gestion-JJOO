@@ -26,6 +26,14 @@ public class SistemaJJOO implements Serializable {
         listaParticipacionesCeremonia = new ArrayList<>();
     }
 
+    public int getAnio() {
+        return anio;
+    }
+
+    public String getSedeCiudad() {
+        return sedeCiudad;
+    }
+
     public HashMap<String, Pais> getListaPaises() {
         return listaPaises;
     }
@@ -42,7 +50,7 @@ public class SistemaJJOO implements Serializable {
         return listaParticipacionesCeremonia;
     }
 
-    public void agregrarPais(Pais pais) {
+    public void agregarPais(Pais pais) {
         listaPaises.put(pais.getCodigoISO(), pais);
     }
 

@@ -16,7 +16,7 @@ public class ServicioPais {
             throw new PaisDuplicadoException("Error. Ese país ya se encuentra registrado");
         }
         Pais pais = new Pais(nombre, codigo);
-        sistema.agregrarPais(pais);
+        sistema.agregarPais(pais);
     }
 
 }
