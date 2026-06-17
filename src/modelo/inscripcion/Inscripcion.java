@@ -3,9 +3,7 @@ package modelo.inscripcion;
 import modelo.deporte.Competencia;
 import modelo.persona.Atleta;
 
-import java.io.Serializable;
-
-public class Inscripcion implements Serializable {
+public class Inscripcion {
     private Atleta atleta;
     private Competencia competencia;
 

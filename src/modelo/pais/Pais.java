@@ -1,8 +1,6 @@
 package modelo.pais;
 
-import java.io.Serializable;
-
-public class Pais implements Serializable {
+public class Pais {
     private String nombre;
     private String codigoISO;
     private Delegacion delegacion;

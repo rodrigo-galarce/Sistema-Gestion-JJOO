@@ -1,8 +1,6 @@
 package modelo.marca;
 
-import java.io.Serializable;
-
-public class PuntajeMarca extends Marca implements Serializable {
+public class PuntajeMarca extends Marca {
     public PuntajeMarca(double valor) {
         super(valor);
     }

@@ -1,9 +1,8 @@
 package modelo.deporte;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Deporte implements Serializable {
+public class Deporte {
     private String nombre;
     private ArrayList<Disciplina> listaDisciplinas;
 

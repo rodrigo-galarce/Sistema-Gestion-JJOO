@@ -6,7 +6,7 @@ import modelo.resultado.Record;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Disciplina implements Serializable {
+public class Disciplina {
     private String nombre;
     private Record recordActual;
     private ArrayList<Competencia> listaCompetencias;

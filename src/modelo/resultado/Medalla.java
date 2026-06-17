@@ -3,9 +3,8 @@ package modelo.resultado;
 import modelo.deporte.Competencia;
 import modelo.persona.Atleta;
 
-import java.io.Serializable;
 
-public class Medalla implements Serializable {
+public class Medalla {
     private TipoMedalla tipo;
     private Atleta atleta;
     private Competencia competencia;

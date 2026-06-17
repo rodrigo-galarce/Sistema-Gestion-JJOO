@@ -4,6 +4,9 @@ import excepciones.PersistenciaException;
 import modelo.SistemaJJOO;
 import persistencia.PersistenciaSistema;
 import ui.MenuPrincipal;
+import ui.principal.VentanaPrincipal;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,11 +16,8 @@ public class Main {
             } catch (PersistenciaException e) {
             System.out.println(e.getMessage());
                 }
-        MenuPrincipal menu = new MenuPrincipal(sistema1);
-        menu.iniciarMenuPrincipal();
-        try {persistencia.guardarSistema(sistema1);
-            } catch (PersistenciaException e) {
-            System.out.println(e.getMessage());
-            }
+        SwingUtilities.invokeLater(() -> {
+            new VentanaPrincipal(sistema1, persistencia);
+        });
     }
 }

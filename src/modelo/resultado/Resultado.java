@@ -3,9 +3,7 @@ package modelo.resultado;
 import modelo.marca.Marca;
 import modelo.persona.Atleta;
 
-import java.io.Serializable;
-
-public class Resultado implements Comparable<Resultado>, Serializable {
+public class Resultado implements Comparable<Resultado> {
     private int posicion;
     private Atleta atleta;
     private Marca marca;

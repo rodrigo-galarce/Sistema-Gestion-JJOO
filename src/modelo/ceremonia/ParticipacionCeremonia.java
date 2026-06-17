@@ -4,7 +4,7 @@ import modelo.persona.Persona;
 
 import java.io.Serializable;
 
-public class ParticipacionCeremonia implements Serializable {
+public class ParticipacionCeremonia {
     private Persona persona;
     private Ceremonia ceremonia;
     private RolCeremonia rol;

@@ -1,8 +1,6 @@
 package modelo.marca;
 
-import java.io.Serializable;
-
-public abstract class Marca implements Comparable<Marca>, Serializable {
+public abstract class Marca implements Comparable<Marca> {
     protected double valor;
 
     public Marca(double valor) {

@@ -5,11 +5,10 @@ import modelo.ceremonia.ParticipacionCeremonia;
 import modelo.deporte.Deporte;
 import modelo.pais.Pais;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SistemaJJOO implements Serializable {
+public class SistemaJJOO {
     private int anio;
     private String sedeCiudad;
     private HashMap<String, Pais> listaPaises;

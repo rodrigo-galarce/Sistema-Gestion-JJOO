@@ -1,4 +1,5 @@
 Brasil;BRA
+Curazao;CUR
 Alemania;GER
 Argentina;ARG
 Inglaterra;ENG
