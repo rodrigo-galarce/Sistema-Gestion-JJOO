@@ -196,10 +196,6 @@ public class VentanaPrincipal extends JFrame {
         actualizarEstado("Consultando datos...");
     }
 
-    public JDesktopPane getDesktopPane() {
-        return desktopPane;
-    }
-
     public SistemaJJOO getSistema() {
         return sistema;
     }
