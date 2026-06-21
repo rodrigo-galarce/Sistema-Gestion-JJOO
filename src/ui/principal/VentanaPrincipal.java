@@ -3,10 +3,10 @@ package ui.principal;
 import excepciones.PersistenciaException;
 import modelo.SistemaJJOO;
 import persistencia.PersistenciaSistema;
-import ui.gestion.IfrRegistrarAtleta;
-import ui.gestion.IfrRegistrarDeporte;
-import ui.gestion.IfrRegistrarEntrenador;
-import ui.gestion.IfrRegistrarPais;
+import ui.consultas.IfrConsultas;
+import ui.gestion.*;
+import ui.inscripciones.IfrInscribirAtleta;
+import ui.inscripciones.IfrInscribirPersonalCeremonia;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,10 +18,12 @@ public class VentanaPrincipal extends JFrame {
     private PersistenciaSistema persistencia;
     private JDesktopPane desktopPane;
     private JLabel lblEstado;
+    private IfrConsultas ifrConsultas;
 
     public VentanaPrincipal(SistemaJJOO sistema, PersistenciaSistema persistencia) {
         this.sistema = sistema;
         this.persistencia = persistencia;
+        ifrConsultas = new IfrConsultas(sistema, this);
         configurarVentana();
         inicializarComponentes();
         configurarEventos();
@@ -75,12 +77,21 @@ public class VentanaPrincipal extends JFrame {
             IfrRegistrarEntrenador ventana3 = new IfrRegistrarEntrenador(sistema);
             desktopPane.add(ventana3); ventana3.setVisible(true);});
         JMenuItem itemRegistrarCeremonia = new JMenuItem("Registrar Ceremonia");
+        itemRegistrarCeremonia.addActionListener(e -> {
+            IfrRegistrarCeremonia ventana4 = new IfrRegistrarCeremonia(sistema);
+            desktopPane.add(ventana4); ventana4.setVisible(true);});
         JMenuItem itemRegistrarDeporte = new JMenuItem("Registrar Deporte");
         itemRegistrarDeporte.addActionListener(e -> {
             IfrRegistrarDeporte ventana5  = new IfrRegistrarDeporte(sistema);
             desktopPane.add(ventana5); ventana5.setVisible(true);});
         JMenuItem itemRegistrarDisciplina = new JMenuItem("Registrar Disciplina");
+        itemRegistrarDisciplina.addActionListener(e -> {
+            IfrRegistrarDisciplina ventana6 = new IfrRegistrarDisciplina(sistema);
+            desktopPane.add(ventana6); ventana6.setVisible(true);});
         JMenuItem itemCrearCompetencia = new JMenuItem("Crear Competencia");
+        itemCrearCompetencia.addActionListener(e -> {
+            IfrCrearCompetencia ventana7 = new IfrCrearCompetencia(sistema);
+            desktopPane.add(ventana7); ventana7.setVisible(true);});
         menuGestion.add(itemRegistrarPais);
         menuGestion.add(itemRegistrarAtleta);
         menuGestion.add(itemRegistrarEntrenador);
@@ -94,9 +105,15 @@ public class VentanaPrincipal extends JFrame {
         // Inscripciones
         JMenu menuInscripciones = new JMenu("Inscripciones");
         JMenuItem itemInscribirAtleta = new JMenuItem("Inscribir Atleta");
-        JMenuItem itemInscribirCeremonia = new JMenuItem("Inscribir Personal a Ceremonia");
+        itemInscribirAtleta.addActionListener(e -> {
+            IfrInscribirAtleta ventana8 = new IfrInscribirAtleta(sistema);
+            desktopPane.add(ventana8); ventana8.setVisible(true);});
+        JMenuItem itemInscribirPersonalCeremonia = new JMenuItem("Inscribir Personal a Ceremonia");
+        itemInscribirPersonalCeremonia.addActionListener(e -> {
+            IfrInscribirPersonalCeremonia ventana9 = new IfrInscribirPersonalCeremonia(sistema);
+            desktopPane.add(ventana9); ventana9.setVisible(true);});
         menuInscripciones.add(itemInscribirAtleta);
-        menuInscripciones.add(itemInscribirCeremonia);
+        menuInscripciones.add(itemInscribirPersonalCeremonia);
 
         // Resultados
         JMenu menuResultados = new JMenu("Resultados");
@@ -105,33 +122,14 @@ public class VentanaPrincipal extends JFrame {
 
         // Consultas
         JMenu menuConsultas = new JMenu("Consultas");
-        JMenuItem itemMedallero = new JMenuItem("Medallero por País");
-        JMenuItem itemAtletas = new JMenuItem("Atletas");
-        JMenuItem itemEntrenadores = new JMenuItem("Entrenadores");
-        JMenuItem itemDisciplinas = new JMenuItem("Disciplinas");
-        JMenuItem itemCompetencias = new JMenuItem("Competencias");
-        JMenuItem itemDelegaciones = new JMenuItem("Delegaciones");
-        JMenuItem itemRecords = new JMenuItem("Récords");
-        JMenuItem itemCeremonias = new JMenuItem("Ceremonias");
-        menuConsultas.add(itemMedallero);
-        menuConsultas.add(itemAtletas);
-        menuConsultas.add(itemEntrenadores);
-        menuConsultas.add(itemDisciplinas);
-        menuConsultas.add(itemCompetencias);
-        menuConsultas.add(itemDelegaciones);
-        menuConsultas.add(itemRecords);
-        menuConsultas.add(itemCeremonias);
+        JMenuItem itemConsultas = new JMenuItem("Abrir Consultas");
+        itemConsultas.addActionListener(e -> abrirConsultas());
+        menuConsultas.add(itemConsultas);
 
         // Ayuda
         JMenu menuAyuda = new JMenu("Ayuda");
         JMenuItem itemAcercaDe = new JMenuItem("Acerca de");
         menuAyuda.add(itemAcercaDe);
-        menuBar.add(menuArchivo);
-        menuBar.add(menuGestion);
-        menuBar.add(menuInscripciones);
-        menuBar.add(menuResultados);
-        menuBar.add(menuConsultas);
-        menuBar.add(menuAyuda);
 
         // AGREGAR MENÚS
         menuBar.add(menuArchivo);
@@ -144,8 +142,15 @@ public class VentanaPrincipal extends JFrame {
         // EVENTOS BÁSICOS
         itemGuardar.addActionListener(e -> guardarSistema());
         itemSalir.addActionListener(e -> cerrarAplicacion());
-        itemAcercaDe.addActionListener(e ->
-                JOptionPane.showMessageDialog(this, "Sistema de Gestión de Juegos Olímpicos", "Acerca de", JOptionPane.INFORMATION_MESSAGE));
+        itemAcercaDe.addActionListener(e -> {
+                    String mensaje =
+                            "Sistema de Gestión de Juegos Olímpicos\n" +
+                                    "Versión 1.0\n\n" +
+                                    "Trabajo Final para la materia \"Programación Orientada a Objetos\"\n\n" +
+                                    "Desarrollado en Java con Swing\n\n" +
+                                    "Autor: Rodrigo Agustin Galarce\n" +
+                                    "Año: 2026";
+            JOptionPane.showMessageDialog(this, mensaje, "Acerca de", JOptionPane.INFORMATION_MESSAGE);});
         return menuBar;
     }
 
@@ -178,6 +183,17 @@ public class VentanaPrincipal extends JFrame {
         }
         dispose();
         System.exit(0);
+    }
+
+    private void abrirConsultas() {
+        if (ifrConsultas.getParent() == null) {
+            desktopPane.add(ifrConsultas);
+        }
+        ifrConsultas.setVisible(true);
+        try {
+            ifrConsultas.setSelected(true);
+        } catch (Exception ignored) {}
+        actualizarEstado("Consultando datos...");
     }
 
     public JDesktopPane getDesktopPane() {

@@ -27,7 +27,13 @@ public class ServicioInscripcion {
         System.out.println("Atleta inscripto correctamente.");
     }
 
-    public void inscribirPersonalACeremonia(Persona persona, Ceremonia ceremonia, RolCeremonia rol) {
+    public void inscribirPersonalACeremonia(Persona persona, Ceremonia ceremonia, RolCeremonia rol) throws InscripcionDuplicadaException {
+        for (ParticipacionCeremonia p : sistema.getListaParticipacionesCeremonia()) {
+            if (p.getPersona().getDni().equals(persona.getDni())
+                    && p.getCeremonia().equals(ceremonia)) {
+                throw new InscripcionDuplicadaException("La persona ya está inscripta en esta ceremonia.");
+            }
+        }
         ParticipacionCeremonia participacion = new ParticipacionCeremonia(persona, ceremonia, rol);
         sistema.agregarParticipacionCeremonia(participacion);
         System.out.println("Participación registrada correctamente.");

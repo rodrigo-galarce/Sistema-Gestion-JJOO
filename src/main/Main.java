@@ -3,7 +3,6 @@ package main;
 import excepciones.PersistenciaException;
 import modelo.SistemaJJOO;
 import persistencia.PersistenciaSistema;
-import ui.MenuPrincipal;
 import ui.principal.VentanaPrincipal;
 
 import javax.swing.*;
