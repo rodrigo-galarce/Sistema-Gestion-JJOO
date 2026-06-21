@@ -3,7 +3,6 @@ package modelo.deporte;
 import modelo.resultado.Resultado;
 import modelo.resultado.Record;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Disciplina {

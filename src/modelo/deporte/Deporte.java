@@ -15,10 +15,6 @@ public class Deporte {
         listaDisciplinas.add(disciplina);
     }
 
-    public void eliminarDisciplina(Disciplina disciplina) {
-        listaDisciplinas.remove(disciplina);
-    }
-
     public ArrayList<Disciplina> getListaDisciplinas() {
         return listaDisciplinas;
     }

@@ -18,4 +18,12 @@ public class Medalla {
     public Competencia getCompetencia() {
         return competencia;
     }
+
+    public Atleta getAtleta() {
+        return atleta;
+    }
+
+    public TipoMedalla getTipo() {
+        return tipo;
+    }
 }

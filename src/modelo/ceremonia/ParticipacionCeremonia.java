@@ -2,8 +2,6 @@ package modelo.ceremonia;
 
 import modelo.persona.Persona;
 
-import java.io.Serializable;
-
 public class ParticipacionCeremonia {
     private Persona persona;
     private Ceremonia ceremonia;

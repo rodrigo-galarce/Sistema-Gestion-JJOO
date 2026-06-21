@@ -44,6 +44,7 @@ public class VentanaPrincipal extends JFrame {
         desktopPane = new JDesktopPane();
         desktopPane.setLayout(new BorderLayout());
         add(desktopPane, BorderLayout.CENTER);
+        desktopPane.setBackground(new Color(240,240,240));
         PanelBienvenida panelBienvenida = new PanelBienvenida(sistema);
         desktopPane.add(panelBienvenida, BorderLayout.CENTER);
         // Barra de estado
