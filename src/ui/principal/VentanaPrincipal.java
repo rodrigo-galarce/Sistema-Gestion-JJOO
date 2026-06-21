@@ -7,6 +7,7 @@ import ui.consultas.IfrConsultas;
 import ui.gestion.*;
 import ui.inscripciones.IfrInscribirAtleta;
 import ui.inscripciones.IfrInscribirPersonalCeremonia;
+import ui.resultados.IfrRegistrarResultado;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +24,7 @@ public class VentanaPrincipal extends JFrame {
     public VentanaPrincipal(SistemaJJOO sistema, PersistenciaSistema persistencia) {
         this.sistema = sistema;
         this.persistencia = persistencia;
-        ifrConsultas = new IfrConsultas(sistema, this);
+        ifrConsultas = new IfrConsultas(sistema);
         configurarVentana();
         inicializarComponentes();
         configurarEventos();
@@ -54,6 +55,7 @@ public class VentanaPrincipal extends JFrame {
 
     private JMenuBar crearMenuBar() {
         JMenuBar menuBar = new JMenuBar();
+
         // Archivo
         JMenu menuArchivo = new JMenu("Archivo");
         JMenuItem itemGuardar = new JMenuItem("Guardar");
@@ -118,6 +120,9 @@ public class VentanaPrincipal extends JFrame {
         // Resultados
         JMenu menuResultados = new JMenu("Resultados");
         JMenuItem itemRegistrarResultado = new JMenuItem("Registrar Resultado");
+        itemRegistrarResultado.addActionListener(e -> {
+            IfrRegistrarResultado ventana10 = new IfrRegistrarResultado(sistema);
+            desktopPane.add(ventana10); ventana10.setVisible(true);});
         menuResultados.add(itemRegistrarResultado);
 
         // Consultas
@@ -131,7 +136,7 @@ public class VentanaPrincipal extends JFrame {
         JMenuItem itemAcercaDe = new JMenuItem("Acerca de");
         menuAyuda.add(itemAcercaDe);
 
-        // AGREGAR MENÚS
+        // Agregar menus
         menuBar.add(menuArchivo);
         menuBar.add(menuGestion);
         menuBar.add(menuInscripciones);
@@ -139,7 +144,7 @@ public class VentanaPrincipal extends JFrame {
         menuBar.add(menuConsultas);
         menuBar.add(menuAyuda);
 
-        // EVENTOS BÁSICOS
+        // Eventos básicos
         itemGuardar.addActionListener(e -> guardarSistema());
         itemSalir.addActionListener(e -> cerrarAplicacion());
         itemAcercaDe.addActionListener(e -> {

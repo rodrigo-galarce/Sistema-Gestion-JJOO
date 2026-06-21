@@ -1,0 +1,3 @@
+Atletismo;100m;Carrera 100m Nro 1;10002;TIEMPO;8.9
+Atletismo;100m;Carrera 100m Nro 1;10001;TIEMPO;7.6
+Atletismo;100m;Carrera 100m Nro 1;10000;TIEMPO;5.4

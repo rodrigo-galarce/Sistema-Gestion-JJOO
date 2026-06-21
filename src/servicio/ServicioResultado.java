@@ -36,20 +36,29 @@ public class ServicioResultado {
     public void asignarMedallas(Competencia competencia) {
         for (Resultado r : competencia.getListaResultados()) {
             Atleta atleta = r.getAtleta();
-            if (r.getPosicion() == 1) {
+            if (r.getPosicion() == 1 && !tieneMedallaCompetencia(atleta, competencia)) {
                 Medalla oro = new Medalla(TipoMedalla.ORO, atleta, competencia);
                 atleta.agregarMedalla(oro);
             }
 
-            else if (r.getPosicion() == 2) {
+            else if (r.getPosicion() == 2 && !tieneMedallaCompetencia(atleta, competencia)) {
                 Medalla plata = new Medalla(TipoMedalla.PLATA, atleta, competencia);
                 atleta.agregarMedalla(plata);
             }
 
-            else if (r.getPosicion() == 3) {
+            else if (r.getPosicion() == 3 && !tieneMedallaCompetencia(atleta, competencia)){
                 Medalla bronce = new Medalla(TipoMedalla.BRONCE, atleta, competencia);
                 atleta.agregarMedalla(bronce);
             }
         }
+    }
+
+    private boolean tieneMedallaCompetencia(Atleta atleta, Competencia competencia) {
+        for (Medalla medalla : atleta.getListaMedallas()) {
+            if (medalla.getCompetencia().equals(competencia)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

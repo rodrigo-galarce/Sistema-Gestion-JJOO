@@ -7,7 +7,6 @@ import java.time.LocalDate;
 
 public class Record {
     private Marca mejorMarca;
-    private LocalDate fecha;
     private Atleta atleta;
 
     public Record(Resultado resultado) {

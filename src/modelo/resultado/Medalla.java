@@ -14,4 +14,8 @@ public class Medalla {
         this.atleta = atleta;
         this.competencia = competencia;
     }
+
+    public Competencia getCompetencia() {
+        return competencia;
+    }
 }

@@ -9,16 +9,12 @@ import modelo.pais.Pais;
 import modelo.persona.Atleta;
 import modelo.persona.Entrenador;
 import modelo.resultado.Record;
-import servicio.ServicioConsulta;
-import ui.principal.VentanaPrincipal;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 public class IfrConsultas extends JInternalFrame {
     private SistemaJJOO sistema;
-    private VentanaPrincipal ventanaPrincipal;
 
     private JComboBox<String> cmbConsulta;
     private JTable tabla;
@@ -27,7 +23,7 @@ public class IfrConsultas extends JInternalFrame {
     private JButton btnActualizar;
     private JButton btnVolver;
 
-    public IfrConsultas(SistemaJJOO sistema, VentanaPrincipal ventanaPrincipal) {
+    public IfrConsultas(SistemaJJOO sistema) {
         super("Consultas",
                 true,
                 true,
@@ -35,7 +31,6 @@ public class IfrConsultas extends JInternalFrame {
                 true);
 
         this.sistema = sistema;
-        this.ventanaPrincipal = ventanaPrincipal;
         configurarVentana();
         inicializarComponentes();
         configurarEventos();
@@ -48,14 +43,14 @@ public class IfrConsultas extends JInternalFrame {
 
     private void inicializarComponentes() {
         cmbConsulta = new JComboBox<>(new String[]{
-                "Medallero",
                 "Atletas",
-                "Entrenadores",
-                "Disciplinas",
+                "Ceremonias",
                 "Competencias",
                 "Delegaciones",
-                "Records",
-                "Ceremonias"
+                "Disciplinas",
+                "Entrenadores",
+                "Medallero",
+                "Records"
         });
         model = new DefaultTableModel();
         tabla = new JTable(model);
@@ -87,14 +82,14 @@ public class IfrConsultas extends JInternalFrame {
         model.setRowCount(0);
         model.setColumnCount(0);
         switch (seleccion) {
-            case "Medallero" -> cargarMedallero();
             case "Atletas" -> cargarAtletas();
-            case "Entrenadores" -> cargarEntrenadores();
-            case "Disciplinas" -> cargarDisciplinas();
+            case "Ceremonias" -> cargarCeremonias();
             case "Competencias" -> cargarCompetencias();
             case "Delegaciones" -> cargarDelegaciones();
+            case "Disciplinas" -> cargarDisciplinas();
+            case "Entrenadores" -> cargarEntrenadores();
+            case "Medallero" -> cargarMedallero();
             case "Records" -> cargarRecords();
-            case "Ceremonias" -> cargarCeremonias();
         }
     }
 

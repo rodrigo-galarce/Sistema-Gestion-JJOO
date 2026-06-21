@@ -4,6 +4,7 @@ import modelo.SistemaJJOO;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class PanelBienvenida extends JPanel {
 
@@ -22,6 +23,11 @@ public class PanelBienvenida extends JPanel {
         lblSede.setFont(new Font("Arial", Font.PLAIN, 24));
         lblSede.setAlignmentX(CENTER_ALIGNMENT);
 
+        // GIF
+        ImageIcon gif = new ImageIcon(Objects.requireNonNull(getClass().getResource("/recursos/bandera_jjoo.gif")));
+        JLabel lblGif = new JLabel(gif);
+        lblGif.setAlignmentX(CENTER_ALIGNMENT);
+
         JLabel lblMensaje = new JLabel("Seleccione una opción del menú superior para comenzar.");
         lblMensaje.setFont(new Font("Arial", Font.ITALIC, 18));
         lblMensaje.setAlignmentX(CENTER_ALIGNMENT);
@@ -33,6 +39,8 @@ public class PanelBienvenida extends JPanel {
         add(Box.createVerticalStrut(10));
         add(lblSede);
         add(Box.createVerticalStrut(30));
+        add(lblGif);
+        add(Box.createVerticalStrut(20));
         add(lblMensaje);
         add(Box.createVerticalGlue());
     }
